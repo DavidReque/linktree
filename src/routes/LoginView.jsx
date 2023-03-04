@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   GoogleAuthProvider,
   onAuthStateChanged,
@@ -12,13 +12,14 @@ import AuthProvider from "../components/AuthProvider";
 
 export default function LoginView() {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState(null);
+  //const [currentUser, setCurrentUser] = useState(null);
   /*
         0:inicializado
         1:loading
         2:login completo
         3:login pero sin registro
         4:no hay nadie logueado
+        5:ya existe usename
     */
   const [currentState, setCurrentState] = useState(0);
 
