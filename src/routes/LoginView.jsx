@@ -20,6 +20,7 @@ export default function LoginView() {
         3:login pero sin registro
         4:no hay nadie logueado
         5:ya existe usename
+        6:nuevo username, click para continuar
     */
   const [currentState, setCurrentState] = useState(0);
 
@@ -45,7 +46,7 @@ export default function LoginView() {
     navigate('/choose-username')
   }
 
-  function handleUserNoLoggedIn(user) {
+  function handleUserNoLoggedIn() {
     setCurrentState(4)
   }
 
@@ -58,6 +59,14 @@ export default function LoginView() {
   }*/
 
   if (currentState === 4) {
+    return (
+      <div>
+        <button onClick={handleOnclick}>Login With Google</button>
+      </div>
+    );
+  }
+
+  if (currentState === 5) {
     return (
       <div>
         <button onClick={handleOnclick}>Login With Google</button>

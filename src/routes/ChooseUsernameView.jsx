@@ -1,13 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import AuthProvider from "../components/AuthProvider";
-import { existsUsername } from "../firebase/firebase";
+import { existsUsername, updateUser } from "../firebase/firebase";
 
 export default function ChooseUsernameView() {
   const navigate = useNavigate();
   const [currentState, setCurrentState] = useState(0);
   const [currentUser, setCurrentUser] = useState({});
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState("");
 
   function handleUserLoggedIn(user) {
     navigate("/dashboard");
@@ -23,36 +23,36 @@ export default function ChooseUsernameView() {
   }
 
   function handleInputUsername(e) {
-    setUsername(e.target.value)
+    setUsername(e.target.value);
   }
 
   async function handleContinue() {
-    if (username !== '') {
-        const exits = await existsUsername(username)
-        if (exits) {
-            setCurrentState(5)
-        } else {
-            const tmp = {...currentUser}
-            tmp.processCompleted = true
-            
-        }
+    if (username !== "") {
+      const exists = await existsUsername(username);
+      if (exists) {
+        setCurrentState(5);
+      } else {
+        const tmp = { ...currentUser };
+        tmp.username = username;
+        tmp.processCompleted = true;
+        await updateUser(tmp);
+        setCurrentState(6);
+      }
     }
   }
 
-  if (currentState === 3) {
+  if (currentState === 3 || currentState === 5) {
     return (
       <div>
         <h1>Bienvenido {currentUser.displayName}</h1>
         <p>Para terminar el proceso elige un nombre de usuario</p>
-
+        {currentState === 5 ? <p>El nombre de usuario ya existe</p> : ""}
         <div>
           <input type="text" onChange={handleInputUsername} />
         </div>
 
         <div>
-            <button onClick={handleContinue}>
-                Continuar
-            </button>
+          <button onClick={handleContinue}>Continuar</button>
         </div>
       </div>
     );
