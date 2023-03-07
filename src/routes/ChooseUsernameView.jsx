@@ -58,6 +58,13 @@ export default function ChooseUsernameView() {
     );
   }
 
+  if (currentState === 6) {
+    return <div>
+      <h1>Felicidades, ya puedes crear tus links</h1>
+      <Link to='/dashboard'>Continuar</Link>
+    </div>
+  }
+
   return (
     <AuthProvider
       onUserLoggedIn={handleUserLoggedIn}
