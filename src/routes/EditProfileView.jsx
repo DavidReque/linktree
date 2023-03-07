@@ -1,5 +1,9 @@
+import DashboardWrapper from "../components/DashboardWrapper";
+
 export default function EditProfileView() {
-    return <div>
-        
-    </div>
+    return (
+        <DashboardWrapper>
+            <div>Edit Profile</div>
+        </DashboardWrapper>
+    )
 }
