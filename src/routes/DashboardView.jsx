@@ -4,6 +4,7 @@ import { useState } from "react";
 import DashboardWrapper from "../components/DashboardWrapper";
 import { v4 as uuidv4 } from "uuid";
 import { insertNewLink, getLinks } from "../firebase/firebase";
+import Link from "../components/Link";
 
 export default function DashboardView() {
   const navigate = useNavigate();
@@ -16,9 +17,9 @@ export default function DashboardView() {
   async function handleUserLoggedIn(user) {
     setCurrentUser(user);
     setCurrentState(2);
-    const resLinks = await getLinks(user.uid)
-    setLinks([...resLinks])
-}
+    const resLinks = await getLinks(user.uid);
+    setLinks([...resLinks]);
+  }
 
   function handleUserNotRegistered(user) {
     navigate("/login");
@@ -35,7 +36,7 @@ export default function DashboardView() {
         onUserNotRegistered={handleUserNotRegistered}
         onUserNoLoggedIn={handleUserNoLoggedIn}
       >
-        Cargando
+        Cargando...
       </AuthProvider>
     );
   }
@@ -72,6 +73,14 @@ export default function DashboardView() {
     }
   }
 
+  function handleDeleteLink() {
+    
+  }
+
+  function handleUpdateLink() {
+    
+  }
+
   return (
     <DashboardWrapper>
       <div>
@@ -89,9 +98,13 @@ export default function DashboardView() {
 
         <div>
           {links.map((link) => (
-            <div key={link.id}>
-              <a href={link.url}>{link.title}</a>
-            </div>
+            <Link
+              key={link.docId}
+              url={link.url}
+              title={link.title}
+              onDelete={handleDeleteLink}
+              onUpdate={handleUpdateLink}
+            />
           ))}
         </div>
       </div>
