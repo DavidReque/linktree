@@ -125,3 +125,13 @@ export const updateLink = async (docId, link) => {
     console.error(error);
   }
 };
+
+export const deleteLink = async(docId) => {
+  try {
+    const docRef = doc(db, 'links', docId)
+    const res = await deleteDoc(docRef)
+    return res
+  } catch (error) {
+    console.error(error);
+  }
+}

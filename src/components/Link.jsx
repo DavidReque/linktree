@@ -48,6 +48,10 @@ export default function Link({ docId, title, url, onDelete, onUpdate }) {
     onUpdate(docId, currentTitle, currentUrl)
   }
 
+  function handleDelete() {
+    onDelete(docId)
+  }
+
   return (
     <div key={docId}>
       <div>
@@ -90,7 +94,7 @@ export default function Link({ docId, title, url, onDelete, onUpdate }) {
       </div>
 
       <div>
-        <button>Eliminar</button>
+        <button onClick={handleDelete}>Eliminar</button>
       </div>
     </div>
   );

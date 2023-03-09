@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import DashboardWrapper from "../components/DashboardWrapper";
 import { v4 as uuidv4 } from "uuid";
-import { insertNewLink, getLinks, updateLink } from "../firebase/firebase";
+import {
+  insertNewLink,
+  getLinks,
+  updateLink,
+  deleteLink,
+} from "../firebase/firebase";
 import Link from "../components/Link";
 
 export default function DashboardView() {
@@ -73,15 +78,17 @@ export default function DashboardView() {
     }
   }
 
-  function handleDeleteLink() {
-    
+  async function handleDeleteLink(docId) {
+    await deleteLink(docId);
+    const tmp = links.filter((link) => link.docId !== docId);
+    setLinks([...tmp]);
   }
 
   async function handleUpdateLink(docId, title, url) {
-    const link = links.find(item => item.docId === docId)
+    const link = links.find((item) => item.docId === docId);
     link.title = title;
     link.url = url;
-    await updateLink(docId, link)
+    await updateLink(docId, link);
   }
 
   return (
