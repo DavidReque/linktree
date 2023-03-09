@@ -126,13 +126,22 @@ export const updateLink = async (docId, link) => {
   }
 };
 
-export const deleteLink = async(docId) => {
+export const deleteLink = async (docId) => {
   try {
-    const docRef = doc(db, 'links', docId)
-    const res = await deleteDoc(docRef)
-    return res
+    const docRef = doc(db, "links", docId);
+    const res = await deleteDoc(docRef);
+    return res;
   } catch (error) {
     console.error(error);
   }
-}
+};
 
+export const setUserProfilePhoto = async (uid, file) => {
+  try {
+    const imageRef = ref(storage, `images/${uid}`);
+    const resUpload = await uploadBytes(imageRef, file);
+    return resUpload;
+  } catch (error) {
+    console.error(error);
+  }
+};

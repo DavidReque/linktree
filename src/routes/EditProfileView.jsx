@@ -2,6 +2,8 @@ import AuthProvider from "../components/AuthProvider";
 import DashboardWrapper from "../components/DashboardWrapper";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
+import { async } from "@firebase/util";
+import { setUserProfilePhoto } from "../firebase/firebase";
 
 export default function EditProfileView() {
   const navigate = useNavigate();
@@ -32,29 +34,49 @@ export default function EditProfileView() {
   }
 
   function handleChangeFile(e) {
-    
+    const files = e.target.files;
+    const fileReader = new FileReader();
+
+    if (fileReader && files && files.length > 0) {
+      fileReader.readAsArrayBuffer(files[0]);
+      fileReader.onload = async function () {
+        const imageData = fileReader.result;
+
+        const res = await setUserProfilePhoto(currentUser.uid, imageData);
+        console.log(res)
+      };
+    }
+  }
+
+  if (currentState !== 2) {
+    return (
+      <AuthProvider
+        onUserLoggedIn={handleUserLoggedIn}
+        onUserNotRegistered={handleUserNotRegistered}
+        onUserNoLoggedIn={handleUserNoLoggedIn}
+      ></AuthProvider>
+    );
   }
 
   return (
-    <AuthProvider
-      onUserLoggedIn={handleUserLoggedIn}
-      onUserNotRegistered={handleUserNotRegistered}
-      onUserNoLoggedIn={handleUserNoLoggedIn}
-    >
-      <DashboardWrapper>
+    <DashboardWrapper>
+      <div>
+        <h2>Editar información del perfil</h2>
         <div>
-          <h2>Editar información del perfil</h2>
           <div>
-            <div>
-              <img src={profileUrl} alt="" width={100} />
-            </div>
-            <div>
-              <button onClick={handleOpenFilePicture}>Elegir nueva foto</button>
-              <input type="file" ref={fileRef} style={{ display: "none" }} onChange={handleChangeFile}/>
-            </div>
+            <img src={profileUrl} alt="" width={100} />
+          </div>
+          <div>
+            <button onClick={handleOpenFilePicture}>Elegir nueva foto</button>
+            <input
+              type="file"
+              ref={fileRef}
+              style={{ display: "none" }}
+              onChange={handleChangeFile}
+            />
           </div>
         </div>
-      </DashboardWrapper>
-    </AuthProvider>
+      </div>
+    </DashboardWrapper>
   );
 }
