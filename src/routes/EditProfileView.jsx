@@ -3,7 +3,7 @@ import DashboardWrapper from "../components/DashboardWrapper";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { async } from "@firebase/util";
-import { setUserProfilePhoto } from "../firebase/firebase";
+import { getProfilePhotoUrl, setUserProfilePhoto, updateUser } from "../firebase/firebase";
 
 export default function EditProfileView() {
   const navigate = useNavigate();
@@ -43,7 +43,15 @@ export default function EditProfileView() {
         const imageData = fileReader.result;
 
         const res = await setUserProfilePhoto(currentUser.uid, imageData);
-        console.log(res)
+
+        if (res) {
+          const tmpUser = { ...currentUser };
+          tmpUser.profilePicture = res.metadata.fullPath;
+          await updateUser(tmpUser)
+          setCurrentUser({...tmpUser})
+          const url = await getProfilePhotoUrl(currentUser.profilePicture)
+          setProfileUrl(url)
+        }
       };
     }
   }

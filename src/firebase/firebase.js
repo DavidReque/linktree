@@ -145,3 +145,15 @@ export const setUserProfilePhoto = async (uid, file) => {
     console.error(error);
   }
 };
+
+export const getProfilePhotoUrl = async (profilePicture) => {
+  try {
+    const imageRef = ref(storage, profilePicture);
+
+    const url = await getDownloadURL(imageRef);
+
+    return url;
+  } catch (error) {
+    console.error(error);
+  }
+};
