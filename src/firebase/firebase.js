@@ -166,3 +166,7 @@ export const getUserProfileInfo = async(uid) => {
     linksInfo: linksInfo
   }
 }
+
+export const logout = async() => {
+  await auth.signOut()
+}
