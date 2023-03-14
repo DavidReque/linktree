@@ -6,6 +6,7 @@ import {
   getProfilePhotoUrl,
   getUserProfileInfo,
 } from "../firebase/firebase";
+import { PublicLink } from "../components/PublicLink";
 
 export default function PublicProfileView() {
   const params = useParams();
@@ -30,7 +31,7 @@ export default function PublicProfileView() {
           );
           setUrl(url);
         } else {
-            setCurrentState(7)
+          setCurrentState(7);
         }
       } catch (error) {
         console.error(error);
@@ -39,9 +40,11 @@ export default function PublicProfileView() {
   }, [params]);
 
   if (currentState === 7) {
-    return <div>
+    return (
+      <div>
         <h1>El usuario no existe</h1>
-    </div>
+      </div>
+    );
   }
 
   return (
@@ -53,9 +56,7 @@ export default function PublicProfileView() {
       <h3>{profile?.profileInfo?.displayName}</h3>
       <div>
         {profile?.linksInfo.map((link) => (
-          <div key={link}>
-            <a href={link.url}>{link.title}</a>
-          </div>
+          <PublicLink key={link.docId} url={link.url} title={link.title}/>
         ))}
       </div>
     </div>
