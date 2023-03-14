@@ -21,6 +21,7 @@ export default function LoginView() {
         4:no hay nadie logueado
         5:ya existe usename
         6:nuevo username, click para continuar
+        7:username no existe
     */
   const [currentState, setCurrentState] = useState(0);
 

@@ -16,6 +16,8 @@ export default function EditProfileView() {
 
   async function handleUserLoggedIn(user) {
     setCurrentUser(user);
+    const url = await getProfilePhotoUrl(user.profilePicture)
+    setProfileUrl(url)
     setCurrentState(2);
   }
 
