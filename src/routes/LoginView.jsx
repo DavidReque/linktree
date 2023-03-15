@@ -9,6 +9,7 @@ import { auth, userExists } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { async } from "@firebase/util";
 import AuthProvider from "../components/AuthProvider";
+import style from './loginView.module.css'
 
 export default function LoginView() {
   const navigate = useNavigate();
@@ -61,16 +62,11 @@ export default function LoginView() {
 
   if (currentState === 4) {
     return (
+      <div className={style.loginView}>
       <div>
-        <button onClick={handleOnclick}>Login With Google</button>
+        <h1 className="title">Link Tree</h1>
       </div>
-    );
-  }
-
-  if (currentState === 5) {
-    return (
-      <div>
-        <button onClick={handleOnclick}>Login With Google</button>
+        <button className={style.provider} onClick={handleOnclick}>Login With Google</button>
       </div>
     );
   }
