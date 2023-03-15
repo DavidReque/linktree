@@ -6,6 +6,7 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
+    gap: 10px;
   }
   
   .provider {
@@ -23,6 +24,3 @@
     cursor: pointer;
   }
   
-h1 {
-  font-size: 33px;
-}

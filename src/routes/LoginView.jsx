@@ -9,7 +9,7 @@ import { auth, userExists } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { async } from "@firebase/util";
 import AuthProvider from "../components/AuthProvider";
-import style from './loginView.module.css'
+import style from "./loginView.module.css";
 
 export default function LoginView() {
   const navigate = useNavigate();
@@ -41,15 +41,15 @@ export default function LoginView() {
   }
 
   function handleUserLoggedIn(user) {
-    navigate('/dashboard')
+    navigate("/dashboard");
   }
 
   function handleUserNotRegistered(user) {
-    navigate('/choose-username')
+    navigate("/choose-username");
   }
 
   function handleUserNoLoggedIn() {
-    setCurrentState(4)
+    setCurrentState(4);
   }
 
   /*if (currentState === 2) {
@@ -63,10 +63,15 @@ export default function LoginView() {
   if (currentState === 4) {
     return (
       <div className={style.loginView}>
-      <div>
-        <h1 className="title">Link Tree</h1>
-      </div>
-        <button className={style.provider} onClick={handleOnclick}>Login With Google</button>
+        <div>
+          <h1 className="font-normal text-4xl text-white">Link Tree</h1>
+        </div>
+        <button
+          className="px-5 py-3 rounded-full border-2 border-cyan-600 bg-cyan-600 font-medium hover:bg-transparent hover:text-white hover:border-2 hover:border-cyan-600"
+          onClick={handleOnclick}
+        >
+          Iniciar sesión con Google
+        </button>
       </div>
     );
   }
@@ -80,5 +85,4 @@ export default function LoginView() {
       <div>Loading ...</div>
     </AuthProvider>
   );
-
 }
