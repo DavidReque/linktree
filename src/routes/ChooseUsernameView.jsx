@@ -54,8 +54,9 @@ export default function ChooseUsernameView() {
         {currentState === 5 ? <p>El nombre de usuario ya existe</p> : ""}
         <div>
           <input
-            className="m-4 p-3 focus:ring-2 focus:ring-cyan-300 focus:outline-none appearance-none w-full sm:w-auto text-sm text-slate-900 placeholder-slate-800 rounded-md border-2 border-cyan-300 shadow-sm"
+            className="m-4 p-3 focus:ring-2 focus:ring-cyan-300 focus:outline-none appearance-none w-full sm:w-auto text-sm text-slate-900 placeholder-slate-800 rounded-md border-2 border-cyan-300 shadow-sm placeholder:text-slate-400"
             type="text"
+            placeholder="Escriba su nombre"
             onChange={handleInputUsername}
           />
         </div>

@@ -94,7 +94,7 @@ export default function DashboardView() {
 
   return (
     <DashboardWrapper>
-      <div>
+      <div className={style.fondo}>
         <h1>Dashboard</h1>
 
         <form
@@ -104,28 +104,30 @@ export default function DashboardView() {
         >
           <div className="flex flex-col md:flex-row md:items-center">
             <label
-              className="mx-4 my-1 text-2xl text-slate-700"
+              className="mx-4 my-1 text-2xl text-white"
               htmlFor="title"
             >
               Titulo
             </label>
             <input
-              className="m-4 p-3 focus:ring-2 focus:ring-black focus:outline-none appearance-none text-sm text-slate-900 placeholder-slate-800 rounded-md ring-2 ring-slate-200 shadow-sm flex-grow"
+              className="m-4 p-3 focus:ring-2 focus:ring-black focus:outline-none appearance-none text-sm text-slate-900 placeholder-slate-800 rounded-md  shadow-sm flex-grow placeholder:text-slate-400"
               type="text"
               name="title"
+              placeholder="Titilo"
               id=""
               onChange={handleOnChange}
             />
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center">
-            <label className="mx-4 my-1 text-2xl text-slate-700" htmlFor="url">
+            <label className="mx-4 my-1 text-white text-2xl" htmlFor="url">
               URL
             </label>
             <input
-              className="m-4 p-3 focus:ring-2 focus:ring-black focus:outline-none appearance-none text-sm text-slate-900 placeholder-slate-800 rounded-md ring-2 ring-slate-200 shadow-sm flex-grow"
+              className="m-4 p-3 focus:ring-2 focus:ring-black focus:outline-none appearance-none text-sm text-slate-900 placeholder-slate-800 rounded-md shadow-sm flex-grow placeholder:text-slate-400"
               type="text"
               name="url"
+              placeholder="https://algo.com"
               id=""
               onChange={handleOnChange}
             />
@@ -133,7 +135,7 @@ export default function DashboardView() {
 
           <div className="flex justify-center md:justify-start">
             <input
-              className="m-4 h-10 px-5 font-semibold rounded-md bg-black text-white hover:bg-slate-600 cursor-pointer"
+              className="m-4 h-10 px-5 rounded-lg border-2 border-cyan-300 bg-cyan-300 font-medium hover:bg-transparent hover:text-white hover:border-2 hover:border-cyan-300"
               type="submit"
               value="Create new Link"
             />
