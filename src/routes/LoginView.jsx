@@ -67,7 +67,7 @@ export default function LoginView() {
           <h1 className="font-normal text-4xl text-white">Link Tree</h1>
         </div>
         <button
-          className="px-5 py-3 rounded-full border-2 border-cyan-600 bg-cyan-600 font-medium hover:bg-transparent hover:text-white hover:border-2 hover:border-cyan-600"
+          className="px-5 py-3 rounded-full border-2 border-cyan-300 bg-cyan-300 font-medium hover:bg-transparent hover:text-white hover:border-2 hover:border-cyan-300"
           onClick={handleOnclick}
         >
           Iniciar sesión con Google
