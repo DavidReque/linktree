@@ -10,6 +10,7 @@ import {
   deleteLink,
 } from "../firebase/firebase";
 import Link from "../components/Link";
+import style from "./dashboardView.module.css";
 
 export default function DashboardView() {
   const navigate = useNavigate();
@@ -96,14 +97,47 @@ export default function DashboardView() {
       <div>
         <h1>Dashboard</h1>
 
-        <form action="" onSubmit={handleOnSubmit}>
-          <label htmlFor="title">Titulo</label>
-          <input type="text" name="title" id="" onChange={handleOnChange} />
+        <form
+          className={style.entryContainer}
+          action=""
+          onSubmit={handleOnSubmit}
+        >
+          <div className="flex flex-col md:flex-row md:items-center">
+            <label
+              className="mx-4 my-1 text-2xl text-slate-700"
+              htmlFor="title"
+            >
+              Titulo
+            </label>
+            <input
+              className="m-4 p-3 focus:ring-2 focus:ring-black focus:outline-none appearance-none text-sm text-slate-900 placeholder-slate-800 rounded-md ring-2 ring-slate-200 shadow-sm flex-grow"
+              type="text"
+              name="title"
+              id=""
+              onChange={handleOnChange}
+            />
+          </div>
 
-          <label htmlFor="url">URL</label>
-          <input type="text" name="url" id="" onChange={handleOnChange} />
+          <div className="flex flex-col md:flex-row md:items-center">
+            <label className="mx-4 my-1 text-2xl text-slate-700" htmlFor="url">
+              URL
+            </label>
+            <input
+              className="m-4 p-3 focus:ring-2 focus:ring-black focus:outline-none appearance-none text-sm text-slate-900 placeholder-slate-800 rounded-md ring-2 ring-slate-200 shadow-sm flex-grow"
+              type="text"
+              name="url"
+              id=""
+              onChange={handleOnChange}
+            />
+          </div>
 
-          <input type="submit" value="Create new Link" />
+          <div className="flex justify-center md:justify-start">
+            <input
+              className="m-4 h-10 px-5 font-semibold rounded-md bg-black text-white hover:bg-slate-600 cursor-pointer"
+              type="submit"
+              value="Create new Link"
+            />
+          </div>
         </form>
 
         <div>
