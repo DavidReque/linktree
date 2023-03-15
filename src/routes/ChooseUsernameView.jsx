@@ -45,15 +45,15 @@ export default function ChooseUsernameView() {
   if (currentState === 3 || currentState === 5) {
     return (
       <div className={style.chooseUsername}>
-        <h1 className="text-400 font-semibold text-slate-900">Bienvenido {currentUser.displayName}</h1>
-        <p className="text-2xl text-slate-700">Para terminar el proceso elige un nombre de usuario</p>
+        <h1 className="font-normal text-4xl text-white">Bienvenido {currentUser.displayName}</h1>
+        <p className="text-2xl text-slate-400">Para terminar el proceso elige un nombre de usuario</p>
         {currentState === 5 ? <p>El nombre de usuario ya existe</p> : ""}
         <div>
-          <input className="m-4 p-3 focus:ring-2 focus:ring-black focus:outline-none appearance-none w-full sm:w-auto text-sm text-slate-900 placeholder-slate-800 rounded-md ring-2 ring-slate-200 shadow-sm" type="text" onChange={handleInputUsername} />
+          <input className="m-4 p-3 focus:ring-2 focus:ring-cyan-300 focus:outline-none appearance-none w-full sm:w-auto text-sm text-slate-900 placeholder-slate-800 rounded-md border-2 border-cyan-300 shadow-sm" type="text" onChange={handleInputUsername} />
         </div>
 
         <div>
-          <button className="h-10 px-6 font-semibold rounded-md bg-black text-white hover:bg-slate-600" onClick={handleContinue}>Continuar</button>
+          <button className="px-5 py-3 rounded-lg border-2 border-cyan-300 bg-cyan-300 font-medium hover:bg-transparent hover:text-white hover:border-2 hover:border-cyan-300" onClick={handleContinue}>Continuar</button>
         </div>
       </div>
     );
