@@ -46,16 +46,6 @@ code {
   font-feature-settings: "liga";
 }
 
-.btn {
-  font-weight: bold;
-  font-size: 18px;
-  border: none;
-  background-color: rgb(13, 110, 184);
-  color: white;
-  padding: 15px 15px;
-  border-radius: 3px;
-}
-
 .main-container input[type="text"] {
   border: solid 1px #ccc;
   border-radius: 3px;

@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import AuthProvider from "../components/AuthProvider";
 import { existsUsername, updateUser } from "../firebase/firebase";
+import style from './chooseUsername.module.css'
 
 export default function ChooseUsernameView() {
   const navigate = useNavigate();
@@ -43,25 +44,25 @@ export default function ChooseUsernameView() {
 
   if (currentState === 3 || currentState === 5) {
     return (
-      <div>
-        <h1>Bienvenido {currentUser.displayName}</h1>
-        <p>Para terminar el proceso elige un nombre de usuario</p>
+      <div className={style.chooseUsername}>
+        <h1 className="text-400 font-semibold text-slate-900">Bienvenido {currentUser.displayName}</h1>
+        <p className="text-2xl text-slate-700">Para terminar el proceso elige un nombre de usuario</p>
         {currentState === 5 ? <p>El nombre de usuario ya existe</p> : ""}
         <div>
-          <input type="text" onChange={handleInputUsername} />
+          <input className="m-4 p-3 focus:ring-2 focus:ring-black focus:outline-none appearance-none w-full sm:w-auto text-sm text-slate-900 placeholder-slate-800 rounded-md ring-2 ring-slate-200 shadow-sm" type="text" onChange={handleInputUsername} />
         </div>
 
         <div>
-          <button onClick={handleContinue}>Continuar</button>
+          <button className="h-10 px-6 font-semibold rounded-md bg-black text-white hover:bg-slate-600" onClick={handleContinue}>Continuar</button>
         </div>
       </div>
     );
   }
 
   if (currentState === 6) {
-    return <div>
-      <h1 className="text-3xl font-bold underline">Felicidades, ya puedes crear tus links</h1>
-      <Link to='/dashboard'>Continuar</Link>
+    return <div className="h-screen flex justify-center flex-col items-center">
+      <h1>Felicidades, ya puedes crear tus links</h1>
+      <Link className="my-3 py-2 h-10 px-6 font-semibold rounded-md bg-black text-white hover:bg-slate-600" to='/dashboard'>Continuar</Link>
     </div>
   }
 
