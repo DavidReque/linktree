@@ -9,3 +9,13 @@
     background-color: #10182b;
     gap: 10px;
   }
+
+  .validar {
+    background-color: #10182b;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
