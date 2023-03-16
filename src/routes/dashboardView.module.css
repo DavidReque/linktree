@@ -4,8 +4,11 @@
     gap: 10px;
     padding: 10px 0;
     margin-bottom: 20px;
+    height: 100vh;
 }
 
 .fondo {
-    background-color: #10182b;
+    background-color: #10182b;/* ajusta el valor según el tamaño del menú */
+    height: 100vh;
 }
+  

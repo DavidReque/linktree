@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function DashboardWrapper({ children }) {
   return (
     <div>
-      <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+      <nav className="bg-white px-2 sm:px-4 py-3 dark:bg-gray-900 w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="/">
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
@@ -52,13 +52,13 @@ export default function DashboardWrapper({ children }) {
                 className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 to="/dashboard/profile"
               >
-                Profile
+                Perfil
               </Link>
               <Link
                 className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 to="/singout"
               >
-                Singout
+                Cerrar sesión
               </Link>
             </ul>
           </div>

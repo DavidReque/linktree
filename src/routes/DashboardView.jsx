@@ -95,7 +95,7 @@ export default function DashboardView() {
   return (
     <DashboardWrapper>
       <div className={style.fondo}>
-        <h1>Dashboard</h1>
+        <h1 className="text-white text-center font-normal text-4xl">Escribe tus Links</h1>
 
         <form
           className={style.entryContainer}
