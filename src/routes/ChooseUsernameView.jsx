@@ -51,7 +51,11 @@ export default function ChooseUsernameView() {
         <p className="text-2xl text-slate-400">
           Para terminar el proceso elige un nombre de usuario
         </p>
-        {currentState === 5 ? <p>El nombre de usuario ya existe</p> : ""}
+        {currentState === 5 ? (
+          <p className="bg-red-600">El nombre de usuario ya existe</p>
+        ) : (
+          ""
+        )}
         <div>
           <input
             className="m-4 p-3 focus:ring-2 focus:ring-cyan-300 focus:outline-none appearance-none w-full sm:w-auto text-sm text-slate-900 placeholder-slate-800 rounded-md border-2 border-cyan-300 shadow-sm placeholder:text-slate-400"

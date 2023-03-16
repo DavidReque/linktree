@@ -1,70 +1,83 @@
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
 export default function DashboardWrapper({ children }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div>
-      <nav className="bg-white px-2 sm:px-4 py-3 dark:bg-gray-900 w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-        <div className="container flex flex-wrap items-center justify-between mx-auto">
-          <a href="/">
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Logo
-            </span>
-          </a>
-          <div class="flex md:order-2">
-            <button
-              type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    <div className="bg-gray-900 text-white">
+      <nav className="container mx-auto flex justify-between items-center py-4">
+        <div className="pr-4">
+          <Link to="/">
+            <img src="/logo.svg" alt="Logo" className="h-8" />
+          </Link>
+        </div>
+
+        <div className="hidden md:block">
+          <Link className="ml-4 px-3 py-2 hover:underline text-2xl" to="/dashboard">
+            Links
+          </Link>
+          <Link
+            className="ml-4 mr-3 px-3 py-2 hover:underline text-2xl"
+            to="/dashboard/profile"
+          >
+            Profile
+          </Link>
+          <button className="px-4 py-2 bg-red-600 rounded-lg hover:opacity-70">
+            <Link className="flex items-center" to="/singout">
+              <span className="material-symbols-outlined text-white mr-2">
+                logout
+              </span>
+              <span className="text-white text-base font-semibold">Singout</span>
+            </Link>
+          </button>
+        </div>
+
+        <div className="md:hidden pr-4">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="mobile-menu-button"
+          >
+            <svg
+              className="w-6 h-6 fill-current"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Get started
-            </button>
-            <button
-              data-collapse-toggle="navbar-sticky"
-              type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-sticky"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Open main menu</span>
-              <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-            <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <Link
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                to="/dashboard"
-              >
-                Links
-              </Link>
-              <Link
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                to="/dashboard/profile"
-              >
-                Perfil
-              </Link>
-              <Link
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                to="/singout"
-              >
-                Cerrar sesión
-              </Link>
-            </ul>
-          </div>
+              <rect x="4" y="5" width="16" height="2"></rect>
+              <rect x="4" y="11" width="16" height="2"></rect>
+              <rect x="4" y="17" width="16" height="2"></rect>
+            </svg>
+          </button>
         </div>
       </nav>
-      <div>{children}</div>
+      <div
+        className={`${
+          isOpen ? "" : "hidden"
+        } md:hidden transition duration-400 ease-in-out`}
+      >
+        <nav className="flex flex-col items-center justify-center">
+          <Link
+            to="/dashboard"
+            className="block px-3 py-2 border-b-0 hover:underline justify-center text-2xl"
+          >
+            Links
+          </Link>
+          <Link
+            to="/dashboard/profile"
+            className="block px-3 py-2 border-b-0 hover:underline justify-center text-2xl"
+          >
+            Profile
+          </Link>
+          <button className="mt-2 px-4 py-2 bg-red-600 rounded-lg hover:opacity-70">
+            <Link className="flex items-center" to="/singout">
+              <span className="material-symbols-outlined text-white mr-2">
+                logout
+              </span>
+              <span className="text-white font-semibold">Singout</span>
+            </Link>
+          </button>
+        </nav>
+      </div>
+      <div className="container mx-auto">{children}</div>
     </div>
   );
 }

@@ -95,7 +95,7 @@ export default function DashboardView() {
   return (
     <DashboardWrapper>
       <div className={style.fondo}>
-        <h1 className="text-white text-center font-normal text-4xl">Escribe tus Links</h1>
+        <h1 className="text-white text-center font-normal text-4xl mt-4">Escribe tus Links</h1>
 
         <form
           className={style.entryContainer}
@@ -142,7 +142,7 @@ export default function DashboardView() {
           </div>
         </form>
 
-        <div>
+        <div className="text-white">
           {links.map((link) => (
             <Link
               key={link.docId}
