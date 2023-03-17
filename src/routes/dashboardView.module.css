@@ -8,5 +8,5 @@
   
 .altura {
     background-color: #111827;/* ajusta el valor según el tamaño del menú */
-    height: 92vh;
+    min-height: 100vh;
 }

@@ -4,7 +4,7 @@ export default function DashboardWrapper({ children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-gray-900 text-white">
+    <div className="top-0 left-0 w-full bg-gray-900 text-white">
       <nav className="container mx-auto flex justify-between items-center py-4">
         <div className="pr-4">
           <Link to="/">

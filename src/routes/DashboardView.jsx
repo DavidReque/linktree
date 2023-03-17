@@ -135,7 +135,7 @@ export default function DashboardView() {
 
             <div className="flex justify-center md:justify-start">
               <input
-                className="m-4 h-10 px-5 rounded-lg border-2 border-cyan-300 bg-cyan-300 font-medium hover:bg-transparent hover:text-white hover:border-2 hover:border-cyan-300"
+                className="mx-auto block m-4 h-10 px-5 rounded-lg border-2 border-cyan-300 bg-cyan-300 font-medium hover:bg-transparent hover:text-white hover:border-2 hover:border-cyan-300"
                 type="submit"
                 value="Create new Link"
               />
