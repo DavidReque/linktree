@@ -12,15 +12,15 @@ export default function Link({ docId, title, url, onDelete, onUpdate }) {
 
   useEffect(() => {
     if (titleRef.current) {
-        titleRef.current.focus()
+      titleRef.current.focus();
     }
-  }, [editTitle])
+  }, [editTitle]);
 
   useEffect(() => {
     if (urlRef.current) {
-        urlRef.current.focus()
+      urlRef.current.focus();
     }
-  }, [editUrl])
+  }, [editUrl]);
 
   function handleEditTitle() {
     setEditTitle(true);
@@ -39,17 +39,17 @@ export default function Link({ docId, title, url, onDelete, onUpdate }) {
   }
 
   function handleBlurTitle(e) {
-    setEditTitle(false)
-    onUpdate(docId, currentTitle, currentUrl)
+    setEditTitle(false);
+    onUpdate(docId, currentTitle, currentUrl);
   }
-  
+
   function handleBlurUrl(e) {
-    setEditUrl(false)
-    onUpdate(docId, currentTitle, currentUrl)
+    setEditUrl(false);
+    onUpdate(docId, currentTitle, currentUrl);
   }
 
   function handleDelete() {
-    onDelete(docId)
+    onDelete(docId);
   }
 
   return (
@@ -94,7 +94,12 @@ export default function Link({ docId, title, url, onDelete, onUpdate }) {
       </div>
 
       <div>
-        <button onClick={handleDelete}>Eliminar</button>
+        <button className="bg-red-500 p-2 rounded-xl hover:opacity-70 m-2 flex items-center justify-center" onClick={handleDelete}>
+          <span className="material-symbols-outlined text-white mr-2">
+            delete
+          </span>
+          <span className="text-white text-base font-semibold">Eliminar </span>
+        </button>
       </div>
     </div>
   );
