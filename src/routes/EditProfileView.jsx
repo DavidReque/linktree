@@ -3,7 +3,11 @@ import DashboardWrapper from "../components/DashboardWrapper";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { async } from "@firebase/util";
-import { getProfilePhotoUrl, setUserProfilePhoto, updateUser } from "../firebase/firebase";
+import {
+  getProfilePhotoUrl,
+  setUserProfilePhoto,
+  updateUser,
+} from "../firebase/firebase";
 
 export default function EditProfileView() {
   const navigate = useNavigate();
@@ -16,8 +20,8 @@ export default function EditProfileView() {
 
   async function handleUserLoggedIn(user) {
     setCurrentUser(user);
-    const url = await getProfilePhotoUrl(user.profilePicture)
-    setProfileUrl(url)
+    const url = await getProfilePhotoUrl(user.profilePicture);
+    setProfileUrl(url);
     setCurrentState(2);
   }
 
@@ -49,10 +53,10 @@ export default function EditProfileView() {
         if (res) {
           const tmpUser = { ...currentUser };
           tmpUser.profilePicture = res.metadata.fullPath;
-          await updateUser(tmpUser)
-          setCurrentUser({...tmpUser})
-          const url = await getProfilePhotoUrl(currentUser.profilePicture)
-          setProfileUrl(url)
+          await updateUser(tmpUser);
+          setCurrentUser({ ...tmpUser });
+          const url = await getProfilePhotoUrl(currentUser.profilePicture);
+          setProfileUrl(url);
         }
       };
     }
@@ -70,14 +74,27 @@ export default function EditProfileView() {
 
   return (
     <DashboardWrapper>
-      <div>
-        <h2>Editar información del perfil</h2>
-        <div>
+      <div className="min-h-screen">
+        <h2 className="text-center mt-5 mb-4 text-2xl text-slate-400">
+          Editar información del perfil
+        </h2>
+        <div className="flex flex-col items-center gap-4">
           <div>
-            <img src={profileUrl} alt="" width={100} />
+            <img
+              className="mx-auto rounded-full w-6/12"
+              src={profileUrl}
+              alt=""
+            />
           </div>
           <div>
-            <button onClick={handleOpenFilePicture}>Elegir nueva foto</button>
+            <button className="bg-orange-200 p-2 rounded-xl hover:opacity-70 m-2 flex items-center justify-center" onClick={handleOpenFilePicture}>
+              <span className="material-symbols-outlined text-black mr-2">
+                archive
+              </span>
+              <span className="text-black text-base font-semibold">
+                Subir nueva foto de perfil
+              </span>
+            </button>
             <input
               type="file"
               ref={fileRef}

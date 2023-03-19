@@ -8,6 +8,7 @@
     flex-direction: column;
     gap: 10px;
     background-image: linear-gradient(to bottom, #366686, #182c42);
+    overflow: hidden;
   }
   
   .provider {
