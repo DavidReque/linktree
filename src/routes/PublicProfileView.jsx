@@ -56,7 +56,7 @@ export default function PublicProfileView() {
       <h3>{profile?.profileInfo?.displayName}</h3>
       <div>
         {profile?.linksInfo.map((link) => (
-          <PublicLink key={link.docId} url={link.url} title={link.title}/>
+          <PublicLink key={link.docId} url={link.url} title={link.title} />
         ))}
       </div>
     </div>

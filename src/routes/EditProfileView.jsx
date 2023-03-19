@@ -87,7 +87,10 @@ export default function EditProfileView() {
             />
           </div>
           <div>
-            <button className="bg-orange-200 p-2 rounded-xl hover:opacity-70 m-2 flex items-center justify-center" onClick={handleOpenFilePicture}>
+            <button
+              className="bg-orange-200 p-2 rounded-xl hover:opacity-70 m-2 flex items-center justify-center"
+              onClick={handleOpenFilePicture}
+            >
               <span className="material-symbols-outlined text-black mr-2">
                 archive
               </span>
