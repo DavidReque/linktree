@@ -61,9 +61,7 @@ export default function PublicProfileView() {
         </h3>
         <div className="w-9/12">
           {profile?.linksInfo.map((link) => (
-            <div className="bg-transparent border-2 border-white h-16 mt-3 mb-5 p-3 rounded-xl hover:bg-slate-100 hover:border-slate-100 hover:text-black">
             <PublicLink key={link.docId} url={link.url} title={link.title} />
-            </div>
           ))}
         </div>
       </div>
