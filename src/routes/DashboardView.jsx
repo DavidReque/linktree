@@ -11,6 +11,7 @@ import {
 } from "../firebase/firebase";
 import Link from "../components/Link";
 import style from "./dashboardView.module.css";
+import { LoadingView } from "../components/LoadingView";
 
 export default function DashboardView() {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ export default function DashboardView() {
         onUserNotRegistered={handleUserNotRegistered}
         onUserNoLoggedIn={handleUserNoLoggedIn}
       >
-        Cargando...
+        <LoadingView />
       </AuthProvider>
     );
   }

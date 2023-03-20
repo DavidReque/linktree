@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { async } from "@firebase/util";
 import AuthProvider from "../components/AuthProvider";
 import style from "./loginView.module.css";
+import { LoadingView } from "../components/LoadingView";
 
 export default function LoginView() {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ export default function LoginView() {
       onUserNotRegistered={handleUserNotRegistered}
       onUserNoLoggedIn={handleUserNoLoggedIn}
     >
-      <div>Loading ...</div>
+      <LoadingView />
     </AuthProvider>
   );
 }

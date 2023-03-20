@@ -8,6 +8,7 @@ import {
   setUserProfilePhoto,
   updateUser,
 } from "../firebase/firebase";
+import { LoadingView } from "../components/LoadingView";
 
 export default function EditProfileView() {
   const navigate = useNavigate();
@@ -68,7 +69,9 @@ export default function EditProfileView() {
         onUserLoggedIn={handleUserLoggedIn}
         onUserNotRegistered={handleUserNotRegistered}
         onUserNoLoggedIn={handleUserNoLoggedIn}
-      ></AuthProvider>
+      >
+        <LoadingView />
+      </AuthProvider>
     );
   }
 

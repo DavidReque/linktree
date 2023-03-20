@@ -3,6 +3,7 @@ import { useState } from "react";
 import AuthProvider from "../components/AuthProvider";
 import { existsUsername, updateUser } from "../firebase/firebase";
 import style from "./chooseUsername.module.css";
+import { LoadingView } from "../components/LoadingView";
 
 export default function ChooseUsernameView() {
   const navigate = useNavigate();
@@ -98,6 +99,8 @@ export default function ChooseUsernameView() {
       onUserLoggedIn={handleUserLoggedIn}
       onUserNotRegistered={handleUserNotRegistered}
       onUserNoLoggedIn={handleUserNoLoggedIn}
-    ></AuthProvider>
+    >
+      <LoadingView />
+    </AuthProvider>
   );
 }
