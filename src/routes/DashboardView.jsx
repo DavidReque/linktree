@@ -113,7 +113,7 @@ export default function DashboardView() {
                 className="m-4 p-3 focus:ring-2 focus:ring-black focus:outline-none appearance-none text-sm text-slate-900 placeholder-slate-800 rounded-md  shadow-sm flex-grow placeholder:text-slate-400"
                 type="text"
                 name="title"
-                placeholder="Titilo"
+                placeholder="Titulo"
                 id=""
                 onChange={handleOnChange}
               />
