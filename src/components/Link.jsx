@@ -54,7 +54,7 @@ export default function Link({ docId, title, url, onDelete, onUpdate }) {
 
   return (
     <div
-      className="flex items-center bg-indigo-500 rounded-lg shadow-lg shadow-indigo-500/50 h-44 mb-10 p-4 w-4/5"
+      className="flex items-center bg-indigo-500 rounded-lg shadow-lg shadow-indigo-500/50 h-52 mb-10 p-4 w-10/12"
       key={docId}
     >
       <div className="py-2 px-3 w-full">
@@ -62,7 +62,7 @@ export default function Link({ docId, title, url, onDelete, onUpdate }) {
           {editTitle ? (
             <>
               <input
-                className="mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
+                className="mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm w-28
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none text-black font-normal"
                 ref={titleRef}
@@ -93,9 +93,8 @@ export default function Link({ docId, title, url, onDelete, onUpdate }) {
           {editUrl ? (
             <>
               <input
-                className="mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
-      focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400
-      disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none text-black font-normal"
+                className="mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm w-28
+      focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none text-black font-normal"
                 ref={urlRef}
                 type="text"
                 value={currentUrl}
@@ -125,7 +124,7 @@ export default function Link({ docId, title, url, onDelete, onUpdate }) {
 
       <div className="flex items-stretch content-stretch">
         <button
-          className="bg-red-500 p-2 rounded-xl hover:opacity-70 m-2 flex items-center justify-center"
+          className="bg-red-500 mr-5 p-2 rounded-xl hover:opacity-70 m-2 flex items-center justify-center"
           onClick={handleDelete}
         >
           <span className="material-symbols-outlined text-white mr-2">
