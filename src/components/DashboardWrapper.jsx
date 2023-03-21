@@ -8,7 +8,7 @@ export default function DashboardWrapper({ children }) {
       <nav className="container mx-auto flex justify-between items-center py-4">
         <div className="pr-4">
           <Link to="/">
-            <img src="/logo.svg" alt="Logo" className="h-8" />
+            <img src="/logo.svg" alt="Logo" className="h-8 ml-4" />
           </Link>
         </div>
 
@@ -35,7 +35,7 @@ export default function DashboardWrapper({ children }) {
         <div className="md:hidden pr-4">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="mobile-menu-button"
+            className="mobile-menu-button ml-4"
           >
             <svg
               className="w-6 h-6 fill-current"
