@@ -18,12 +18,21 @@ The application has been developed as part of my personal portfolio to showcase 
 - Firebase
 - Tailwind CSS
 
-## Capturas de pantalla
+## Screenshots
 
-![Captura de pantalla de la página principal](public/Images/Captura%20de%20pantalla%20(194).png))
-![Captura de pantalla de la página de inicio de sesión](public/Images/Captura%20de%20pantalla%20(195).png)
-![Captura de pantalla de la página de configuración de enlaces](public/Images/Captura%20de%20pantalla%20(198).png)
-![Captura de pantalla configuración del perfil](public/Images/Captura%20de%20pantalla%20(199).png)
-![Captura de pantalla información del perfil](public/Images/Captura%20de%20pantalla%20(200).png)
+- Homepage screenshot
+![Homepage screenshot](public/Images/Captura%20de%20pantalla%20(194).png)
+
+- Login page screenshot
+![Login page screenshot](public/Images/Captura%20de%20pantalla%20(195).png)
+
+- Links configuration page screenshot
+![Links configuration page screenshot](public/Images/Captura%20de%20pantalla%20(198).png)
+
+- Profile configuration page screenshot
+![Profile configuration page screenshot](public/Images/Captura%20de%20pantalla%20(199).png)
+
+- Profile information page screenshot
+![Profile information page screenshot](public/Images/Captura%20de%20pantalla%20(200).png)
 
 David Requeno.
