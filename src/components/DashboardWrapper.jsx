@@ -10,7 +10,7 @@ export default function DashboardWrapper({ children }) {
       <nav className="container mx-auto flex justify-between items-center py-4">
         <div className="pr-4">
           <Link to="/">
-            <img src="/logo.svg" alt="Logo" className="h-8 ml-4" />
+            <h1 className="text-xl">Linktree</h1>
           </Link>
         </div>
 
