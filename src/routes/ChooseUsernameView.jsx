@@ -53,7 +53,7 @@ export default function ChooseUsernameView() {
           Para terminar el proceso elige un nombre de usuario
         </p>
         {currentState === 5 ? (
-          <p className="bg-red-600">El nombre de usuario ya existe</p>
+          <p className="text-red-500">El nombre de usuario ya existe</p>
         ) : (
           ""
         )}
