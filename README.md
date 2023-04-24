@@ -21,18 +21,23 @@ The application has been developed as part of my personal portfolio to showcase 
 ## Screenshots
 
 - Homepage screenshot
+
 ![Homepage screenshot](public/Images/Captura%20de%20pantalla%20(194).png)
 
 - Login page screenshot
+
 ![Login page screenshot](public/Images/Captura%20de%20pantalla%20(195).png)
 
 - Links configuration page screenshot
+
 ![Links configuration page screenshot](public/Images/Captura%20de%20pantalla%20(198).png)
 
 - Profile configuration page screenshot
+
 ![Profile configuration page screenshot](public/Images/Captura%20de%20pantalla%20(199).png)
 
 - Profile information page screenshot
+
 ![Profile information page screenshot](public/Images/Captura%20de%20pantalla%20(200).png)
 
 David Requeno.
